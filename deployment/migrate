@@ -1,6 +1,5 @@
 #!/bin/bash
 
-npm run release
-# cp nginx/conf.d/studio.conf ../../../custom-nginx/conf.d/
+cp nginx/conf.d/studio.conf ../../../custom-nginx/conf.d/
 
 echo "Nginx configuration copied to custom-nginx directory"

@@ -16,7 +16,7 @@ dev:
 	make kill && NODE_ENV=development docker-compose up -d && make logs-back
 
 prod:
-	NODE_ENV=production docker-compose -f docker-compose.production.yml -p studio --compatibility up -d --build
+	NODE_ENV=production docker-compose -f docker-compose.production.yml -p studio --compatibility up -d
 
 logs-back:
 	docker logs studio-backend -f

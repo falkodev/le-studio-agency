@@ -24,8 +24,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: '2000M'
+          cpus: '0.25'
+          memory: '1000M'
       restart_policy:
         condition: on-failure
         max_attempts: 3
@@ -38,6 +38,7 @@ services:
     build: .
     volumes:
       - ./app.js:/app/app.js
+      - ./release-id:/app/release-id
       - ./lib:/app/lib
       - ./modules:/app/modules
       - ./public:/app/public
@@ -51,6 +52,7 @@ services:
       NODE_ENV: ${NODE_ENV:-production}
       WAIT_HOSTS: studio-db:27017
       APOS_BASE_URL: https://lestudio.dev
+      APOS_CLUSTER_PROCESSES: 2
       APOS_MONGODB_URI:
       PORT:
     logging:
@@ -62,8 +64,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.75'
-          memory: '3000M'
+          cpus: '0.25'
+          memory: '1000M'
       restart_policy:
         condition: on-failure
         max_attempts: 3

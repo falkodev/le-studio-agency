@@ -28,7 +28,7 @@ services:
       - studio-db
     environment:
       NAME: studio
-      NODE_ENV: ${NODE_ENV:-production}
+      NODE_ENV: development
       APOS_MONGODB_URI: mongodb://studio-db:27017/studio
       PORT:
     healthcheck:
