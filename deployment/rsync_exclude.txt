@@ -3,7 +3,6 @@
 # that are *not* part of deployment. A good place for things like data/port, data/pid, and any
 # sqlite databases or static web content you may need
 temp
-/public
 /config
 /robots.txt
 tmp

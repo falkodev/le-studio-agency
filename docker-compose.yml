@@ -9,7 +9,7 @@ services:
     volumes:
       - mongodata:/data/db
     healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongo localhost:27017/test --quiet
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
 
   studio-backend:
     container_name: studio-backend

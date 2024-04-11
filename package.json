@@ -5,10 +5,10 @@
   "main": "app.js",
   "scripts": {
     "start": "node app",
-    "dev": "nodemon",
+    "dev": "APP_ENV=local nodemon",
     "lint": "eslint . --fix",
     "build": "sh ./scripts/release-tasks",
-    "serve": "NODE_ENV=production node app",
+    "serve": "node app @apostrophecms/migration:migrate && NODE_ENV=production node app",
     "release": "npm run build && node app @apostrophecms/migration:migrate"
   },
   "nodemonConfig": {

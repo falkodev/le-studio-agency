@@ -20,7 +20,7 @@ services:
         max-file: '5'
         max-size: '5m'
     healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongo localhost:27017/test --quiet
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
     deploy:
       resources:
         limits:

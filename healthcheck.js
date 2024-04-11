@@ -2,7 +2,7 @@ const http = require('http')
 
 const options = {
   host: 'localhost',
-  port: '1337',
+  port: process.env.PORT || 3001,
   timeout: 2000,
 }
 

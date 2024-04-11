@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ path: process.env.APP_ENV === 'local' ? '.env.local' : '.env' });
 
 require('apostrophe')({
   shortName: 'studio',
