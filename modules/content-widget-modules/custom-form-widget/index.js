@@ -13,6 +13,11 @@ module.exports = {
   },
   fields: {
     add: {
+      anchorId: {
+        type: 'string',
+        label: 'Anchor ID',
+        help: 'This is the ID that will be used to link to this section. It should be unique and contain no spaces.'
+      },
       layout: {
         type: 'select',
         def: 'background',

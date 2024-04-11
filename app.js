@@ -1,8 +1,8 @@
 require('dotenv').config();
 
 require('apostrophe')({
-  shortName: 'starter-kit-marketing',
-  baseUrl: process.env.APOS_BASE_URL || 'http://localhost:3000',
+  shortName: 'studio',
+  baseUrl: process.env.APOS_BASE_URL || 'http://localhost:3001',
   nestedModuleSubdirs: true,
   modules: {
     // Apostrophe module configuration

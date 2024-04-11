@@ -1,0 +1,42 @@
+version: '3.7'
+
+services:
+  studio-db:
+    container_name: studio-db
+    image: mongo:6
+    ports:
+      - 27020:27017
+    volumes:
+      - mongodata:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo localhost:27017/test --quiet
+
+  studio-backend:
+    container_name: studio-backend
+    build: .
+    init: true
+    volumes:
+      - ./app.js:/app/app.js
+      - ./lib:/app/lib
+      - ./modules:/app/modules
+      - ./public:/app/public
+      - ./views:/app/views
+      # - ./node_modules/apostrophe:/app/node_modules/apostrophe
+    ports:
+      - 3001:3001
+    depends_on:
+      - studio-db
+    environment:
+      NAME: studio
+      NODE_ENV: ${NODE_ENV:-production}
+      APOS_MONGODB_URI: mongodb://studio-db:27017/studio
+      PORT:
+    healthcheck:
+      test: node healthcheck
+    logging:
+      options:
+        max-file: '5'
+        max-size: '5m'
+
+volumes:
+  mongodata:

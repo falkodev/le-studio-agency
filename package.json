@@ -1,14 +1,15 @@
 {
-  "name": "a3-starter-kit-marketing",
+  "name": "le-studio-agency",
   "version": "1.0.0",
-  "description": "Marketing starter kit for ApostropheCMS",
+  "description": "Web agency template with ApostropheCMS",
   "main": "app.js",
   "scripts": {
     "start": "node app",
     "dev": "nodemon",
+    "lint": "eslint . --fix",
     "build": "bash ./scripts/release-tasks",
     "serve": "NODE_ENV=production node app",
-    "release": "npm install && npm run build && node app @apostrophecms/migration:migrate"
+    "release": "npm run build && node app @apostrophecms/migration:migrate"
   },
   "nodemonConfig": {
     "delay": 1000,
@@ -55,8 +56,8 @@
     "swiper": "^9.2.3"
   },
   "devDependencies": {
-    "eslint": "^7.16.0",
-    "eslint-config-apostrophe": "^3.4.0",
+    "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0",
     "eslint-plugin-node": "^11.1.0",
     "nodemon": "^2.0.7"
   }

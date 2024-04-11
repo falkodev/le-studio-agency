@@ -1,12 +1,6 @@
 #!/bin/bash
 
-export NODE_ENV=production
+npm run release
+# cp nginx/conf.d/studio.conf ../../../custom-nginx/conf.d/
 
-# Run any necessary database migration tasks that should happen while the
-# site is paused here.
-#
-# We don't have any, 3.x policy is safe migrations only. -Tom
-
-# node app @apostrophecms/migration:migrate
-#
-#echo "Site migrated"
+echo "Nginx configuration copied to custom-nginx directory"

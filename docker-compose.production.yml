@@ -1,0 +1,75 @@
+version: '3.7'
+
+services:
+  studio-db:
+    container_name: studio-db
+    image: agency/studio-db
+    build: db
+    ports:
+      - 27020:27017
+    volumes:
+      - ./db/data/db:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: studio
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD:
+      MONGO_INITDB_USER_USERNAME: studio-admin
+      MONGO_INITDB_USER_PASSWORD:
+    logging:
+      options:
+        max-file: '5'
+        max-size: '5m'
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo localhost:27017/test --quiet
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '2000M'
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+    networks:
+      - agency
+
+  studio-backend:
+    container_name: studio-backend
+    image: agency/studio-backend
+    build: .
+    volumes:
+      - ./app.js:/app/app.js
+      - ./lib:/app/lib
+      - ./modules:/app/modules
+      - ./public:/app/public
+      - ./views:/app/views
+    ports:
+      - 3001:3001
+    depends_on:
+      - studio-db
+    environment:
+      NAME: studio
+      NODE_ENV: ${NODE_ENV:-production}
+      WAIT_HOSTS: studio-db:27017
+      APOS_BASE_URL: https://lestudio.dev
+      APOS_MONGODB_URI:
+      PORT:
+    logging:
+      options:
+        max-file: '5'
+        max-size: '5m'
+    healthcheck:
+      test: node healthcheck
+    deploy:
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: '3000M'
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+    networks:
+      - agency
+
+networks:
+  agency:
+    name: agency

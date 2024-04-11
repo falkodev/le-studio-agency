@@ -7,8 +7,9 @@
   {% set backgroundColor = data.widget.backgroundColor %}
 {% endif %}
 
-<section 
+<section
   data-aos="{{ data.widget.animationEffects }}"
+  id="{{ data.widget.anchorId }}"
   class="
     custom-form custom-form--{{ data.widget.fontColor }} custom-form--{{ layout }}
     {{ 'container widget-my-spacing' if layout === 'column' else 'widget-py-spacing' }}

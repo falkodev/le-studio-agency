@@ -1,4 +1,4 @@
-# Marketing Starter Kit
+# Web agency template for ApostropheCMS
 A starter kit for building marketing-themed websites. Add hero blocks, feature lists, multi-column layouts, pricing, team members, and more with this rich starter kit for Apostrophe.
 
 ## Demo
@@ -89,9 +89,9 @@ This starter kit is designed so you can install and start running it right away.
 The below ApostropheCMS extensions have been included within this theme's main ApostropheCMS `app.js` file.
 
 - [ ] **@apostrophecms/form.** Allows editors to create their own forms for gathering and delivering user input.
-(View extension - https://apostrophecms.com/extensions/form-builder-3-x) 
+(View extension - https://apostrophecms.com/extensions/form-builder-3-x)
 - [ ] **@apostrophecms/open-graph.** Provides a way to edit metadata for Facebook's Open Graph standard.
-(View extension - https://apostrophecms.com/extensions/open-graph-tools-3) 
+(View extension - https://apostrophecms.com/extensions/open-graph-tools-3)
 - [ ] **@apostrophecms/seo.** SEO configuration for ApostropheCMS. Adds useful meta fields to all pages and pieces.
 (View extension - https://apostrophecms.com/extensions/seo-tools-3)
 - [ ] **@apostrophecms/sitemap.** Generates XML and plaintext sitemaps for sites in Apostrophe.
@@ -105,20 +105,20 @@ The below ApostropheCMS extensions have been included within this theme's main A
     require('dotenv').config();
     ```
     You can then reference environment variables within the server js files for Apostrophe,
-    
+
     ```js
     const port = process.env.PORT || 3000;
     const dbHost = process.env.DB_HOST || 'localhost';
     const dbUser = process.env.DB_USER;
     const dbPassword = process.env.DB_PASSWORD;
     ```
-- [ ] **rfs (Responsive Font Sizing).** The "rfs" package is a node.js module that provides a simple way to create responsive and fluid typography in CSS. It allows you to define font sizes using a unitless value (usually "rem") and automatically adjust them based on the viewport or container width. 
+- [ ] **rfs (Responsive Font Sizing).** The "rfs" package is a node.js module that provides a simple way to create responsive and fluid typography in CSS. It allows you to define font sizes using a unitless value (usually "rem") and automatically adjust them based on the viewport or container width.
 
     Mainly used within `modules/asset/ui/src/_typography.scss` file for consistent rem based font sizing. Usage applied to headings and paragraphs.
-    
+
     E.g ``` @include font-size($h1-font-size)```
     where $h1-font-size is a rem value determined by a base value.
-    
+
     in this theme a default of 16px: ```$h1-font-size: $font-size-base * 3; // 48px```
 
 - [ ] **swiper (Slideshows).** The "swiper" package is a JavaScript library for creating responsive and touch-enabled sliders, carousels, and other interactive content on the web. Its usage within this theme is located at modules/content-widget-modules/image-gallery-widget
@@ -133,22 +133,22 @@ The below ApostropheCMS extensions have been included within this theme's main A
       // Optional parameters
       direction: 'horizontal',
       loop: true,
-    
+
       // Navigation arrows
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-    
+
       // And more...
     });
     ```
 - [ ] **photoswipe (Lightbox)** "PhotoSwipe Lightbox" is a plugin for the popular JavaScript library "PhotoSwipe" that simplifies the process of creating responsive image galleries with lightbox functionality. It offers an easy-to-use API for adding lightboxes to your images and is highly customizable and flexible.
 
     Its usage within this theme is located at `modules/content-widget-modules/image-gallery-widget`, and is applied in conjunction with the swiper npm package.
-    
+
     You can import it in your JavaScript file using the import statement:
-    
+
     ```js
     import PhotoSwipeLightbox from 'photoswipe/lightbox';
     import PhotoSwipe from 'photoswipe';
@@ -165,20 +165,20 @@ The below ApostropheCMS extensions have been included within this theme's main A
         children: 'a',
         loop: true,
         showHideAnimationType: 'fade', /* options: fade, zoom, none */
-        
+
         /* Click on image moves to the next slide */
         imageClickAction: 'next',
         tapAction: 'next',
-        
+
         /* ## Hiding a specific UI element ## */
         zoom: false,
         close: true,
         counter: true,
         arrowKeys: true
     };
-    
+
     const lightbox = new PhotoSwipeLightbox(photoSwipeOptions);
-    
+
     lightbox.init();
     ```
 
@@ -194,7 +194,7 @@ The below ApostropheCMS extensions have been included within this theme's main A
       // For a full list of the node-geocoder npm package options please view the modules documentation - https://www.npmjs.com/package/node-geocoder
       // Requred
       provider: 'mapbox',
-    
+
       // Optional depending on the providers
       apiKey: 'include provider apikey', // for Mapquest, OpenCage, Google Premier
       formatter: null, // 'gpx', 'string', ...
@@ -232,21 +232,21 @@ The below ApostropheCMS extensions have been included within this theme's main A
 - [ ] **AOS (Animations)** Animate On Scroll (AOS) library allows you to animate elements as you scroll down and up. If you scroll back to the top, elements will animate to their previous state and are ready to animate again if you scroll down.
 
     You can import it in your JavaScript file (`modules/asset/ui/src/index.js`) using the import statement:
-    
+
     ```js
     import AOS from 'aos';
     ```
     Then, initialize AOS. For example:
-    
+
     ```js
     AOS.init();
     ```
-    
+
     For usage within this theme, Create an instance of 'aosSchema' in your widget and add it as field. For example:
-    
+
     ```js
     const aosSchema = require('../../../lib/aosSchema.js');
-    
+
     add: {
       ...aosSchema
     }

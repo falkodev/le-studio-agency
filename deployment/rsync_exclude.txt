@@ -2,12 +2,25 @@
 # In our projects .git and .gitignore are good candidates, also 'data' which contains persistent files
 # that are *not* part of deployment. A good place for things like data/port, data/pid, and any
 # sqlite databases or static web content you may need
-data
 temp
-public/uploads
-public/apos-frontend
+/scripts
+/public
+/config
+/lib
+/robots.txt
+tmp
+local.example.js
+npm-debug.log
+local.example.js
+yarn.lock
+README.md
 .git
 .gitignore
+.DS_Store
 # We don't deploy these anymore, instead we always 'npm install' to ensure
 # that any compiled C++ modules are built for the right architecture
 node_modules
+nginx/logs
+db/backup
+db/data/db
+public/uploads
