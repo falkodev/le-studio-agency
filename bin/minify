@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+const minify = require('@node-minify/core');
+const terser = require('@node-minify/terser');
+const cssnano = require('@node-minify/cssnano');
+
+minify({
+  compressor: cssnano,
+  input: 'public/stylesheets/**/*.css',
+  output: 'public/stylesheets/style.min.css'
+});
+
+minify({
+  compressor: terser,
+  input: 'public/javascripts/**/*.js',
+  output: 'public/javascripts/script.min.js'
+});

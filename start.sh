@@ -4,5 +4,5 @@ if [ "$NODE_ENV" = "development" ]
 then
   npm run dev
 else
-  npm run serve
+  npm run start
 fi

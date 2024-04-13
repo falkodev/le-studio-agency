@@ -1,3 +1,2 @@
 #!/bin/bash
 
-# docker exec -i studio-backend sh -c 'node app @apostrophecms/migration:migrate'

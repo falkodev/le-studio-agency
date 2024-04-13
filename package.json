@@ -1,64 +1,42 @@
 {
   "name": "le-studio-agency",
   "version": "1.0.0",
-  "description": "Web agency template with ApostropheCMS",
-  "main": "app.js",
+  "private": true,
   "scripts": {
-    "start": "node app",
-    "dev": "APP_ENV=local nodemon",
-    "lint": "eslint . --fix",
-    "build": "sh ./scripts/release-tasks",
-    "serve": "node app @apostrophecms/migration:migrate && NODE_ENV=production node app",
-    "release": "npm run build && node app @apostrophecms/migration:migrate"
+    "dev": "nodemon ./bin/www",
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.4.5",
+    "express": "~4.16.1",
+    "hbs": "~4.0.4",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "nodemailer": "^6.9.13"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^6.0.0",
+    "@node-minify/core": "^8.0.6",
+    "@node-minify/cssnano": "^8.0.6",
+    "@node-minify/terser": "^8.0.6",
+    "nodemon": "^3.1.0"
   },
   "nodemonConfig": {
-    "delay": 1000,
-    "verbose": true,
+    "delay": 100,
+    "verbose": false,
     "watch": [
       "./app.js",
-      "./modules/**/*",
-      "./lib/**/*.js",
-      "./views/**/*.html"
+      "routes",
+      "./views/partials/*.hbs"
     ],
     "ignoreRoot": [
       ".git"
     ],
     "ignore": [
-      "**/ui/apos/",
-      "**/ui/src/",
-      "**ui/public/",
-      "locales/*.json",
-      "public/uploads/",
-      "public/apos-frontend/*.js",
-      "data/"
+      "public"
     ],
-    "ext": "json, js, html, scss, vue"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:apostrophecms/starter-kit-marketing.git"
-  },
-  "author": "Apostrophe Technologies",
-  "license": "MIT",
-  "dependencies": {
-    "@apostrophecms/form": "^1.1.1",
-    "@apostrophecms/open-graph": "^1.2.1",
-    "@apostrophecms/seo": "^1.2.0",
-    "@apostrophecms/sitemap": "^1.0.2",
-    "aos": "^2.3.4",
-    "apostrophe": "^4.0.0",
-    "dotenv": "^16.0.3",
-    "node-geocoder": "^4.2.0",
-    "normalize.css": "^8.0.1",
-    "ol": "^7.3.0",
-    "photoswipe": "^5.3.7",
-    "rfs": "^10.0.0",
-    "swiper": "^9.2.3"
-  },
-  "devDependencies": {
-    "eslint": "^8.57.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-node": "^11.1.0",
-    "nodemon": "^2.0.7"
+    "ext": "json, js, hbs"
   }
 }

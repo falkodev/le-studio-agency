@@ -13,19 +13,13 @@ rebuild:
 	NODE_ENV=development docker-compose build --no-cache
 
 dev:
-	make kill && NODE_ENV=development docker-compose up -d && make logs-back
+	make kill && NODE_ENV=development docker-compose up -d && make logs
 
 prod:
-	NODE_ENV=production docker-compose -f docker-compose.production.yml -p studio --compatibility up -d
-
-logs-back:
-	docker logs studio-backend -f
-
-logs-db:
-	docker logs studio-db -f
+	NODE_ENV=production docker-compose -f docker-compose.production.yml -p studio --compatibility up -d --build
 
 logs:
-	make logs-back && make logs-db
+	docker logs studio-backend -f
 
 ps:
 	docker-compose ps

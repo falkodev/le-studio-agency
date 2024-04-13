@@ -1,0 +1,49 @@
+.navigation__nav-links {
+  list-style: none;
+}
+
+.u-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100vw !important;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+@keyframes animate-box {
+  to {
+    transform: translate(-60%, -30%);
+  }
+}
+
+.animate-box {
+  animation: animate-box 1s linear alternate infinite;
+}
+
+@keyframes animate-circle {
+  to {
+    transform: translateX(-1000px);
+  }
+}
+
+.animate-circle {
+  animation: animate-circle 1s linear alternate infinite;
+}
+
+@keyframes animate-stripe-circle {
+  to {
+    transform: translate(150%, 150%);
+  }
+}
+
+.animate-stripe-circle {
+  animation: animate-stripe-circle 1s linear alternate infinite;
+}
+
+.animate {
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll) * -1s);
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}

@@ -1,74 +1,53 @@
-require('dotenv').config({ path: process.env.APP_ENV === 'local' ? '.env.local' : '.env' });
+const createError = require('http-errors');
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const hbs = require('hbs');
 
-require('apostrophe')({
-  shortName: 'studio',
-  baseUrl: process.env.APOS_BASE_URL || 'http://localhost:3001',
-  nestedModuleSubdirs: true,
-  modules: {
-    // Apostrophe module configuration
-    // *******************************
-    //
-    // NOTE: most configuration occurs in the respective modules' directories.
-    // See modules/@apostrophecms/page/index.js for an example.
-    //
-    // Any modules that are not present by default in Apostrophe must at least
-    // have a minimal configuration here to turn them on: `moduleName: {}`
-    // ***********************************************************************
-    // `className` options set custom CSS classes for Apostrophe core widgets.
-    '@apostrophecms/rich-text-widget': {
-      options: {}
-    },
-    '@apostrophecms/image-widget': {
-      options: {
-        className: 'img-fluid'
-      }
-    },
-    '@apostrophecms/video-widget': {
-      options: {}
-    },
+require('dotenv').config()
+const indexRouter = require('./routes/index');
 
-    // The main form module
-    '@apostrophecms/form': {
-      options: {
-        shortcut: 'a,f'
-      }
-    },
-    // The form widget module, allowing editors to add forms to content areas
-    '@apostrophecms/form-widget': {},
-    // Form field widgets, used by the main form module to build forms.
-    '@apostrophecms/form-text-field-widget': {},
-    '@apostrophecms/form-textarea-field-widget': {},
-    '@apostrophecms/form-select-field-widget': {},
-    '@apostrophecms/form-radio-field-widget': {},
-    '@apostrophecms/form-file-field-widget': {},
-    '@apostrophecms/form-checkboxes-field-widget': {},
-    '@apostrophecms/form-boolean-field-widget': {},
-    '@apostrophecms/form-conditional-widget': {},
+const app = express();
 
-    '@apostrophecms/sitemap': {
-      options: {
-        excludeTypes: [ 'team-member', 'product' ]
-      }
-    },
-    '@apostrophecms/seo': {},
-    '@apostrophecms/open-graph': {},
-
-    // `asset` supports the project's webpack build for client-side assets.
-    helper: {},
-    asset: {},
-    settings: {},
-
-    // The project's first custom page type.
-    'default-page': {},
-    'content-widget-modules': {
-      options: {
-        ignoreNoCodeWarning: true
-      }
-    },
-    'pieces-modules': {
-      options: {
-        ignoreNoCodeWarning: true
-      }
-    }
+// view engine setup
+const partialsDir = __dirname + '/views/partials';
+const filenames = fs.readdirSync(partialsDir);
+filenames.forEach(function (filename) {
+  const matches = /^([^.]+).hbs$/.exec(filename);
+  if (!matches) {
+    return;
   }
+  const name = matches[1];
+  const template = fs.readFileSync(partialsDir + '/' + filename, 'utf8');
+  hbs.registerPartial(name, template);
 });
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', indexRouter);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;

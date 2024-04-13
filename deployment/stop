@@ -6,7 +6,6 @@ cp -r $HERE/public/uploads/attachments $HERE/../../uploads
 echo "Attachments saved"
 
 # docker-compose stop
-docker stop studio-db
 docker stop studio-backend
 
 # echo "Prune docker images and volumes"

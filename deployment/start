@@ -1,18 +1,5 @@
 #!/bin/bash
 
-HERE=`pwd`
-mkdir -p ../../data
-ln -s ../../data $HERE/data
-
-mkdir -p ../../uploads
-cp -r $HERE/../../uploads $HERE/public
-
-mkdir -p ../../db/data/db
-mkdir -p $HERE/db/data
-ln -sfn $HERE/../../db/data/db $HERE/db/data
-
-chmod -R 755 $HERE/public/uploads/attachments/
-
 make prod
 docker restart custom-nginx # enable nginx to see new uploads
 

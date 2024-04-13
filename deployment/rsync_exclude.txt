@@ -17,8 +17,4 @@ README.md
 # We don't deploy these anymore, instead we always 'npm install' to ensure
 # that any compiled C++ modules are built for the right architecture
 node_modules
-db/backup
-db/data/db
-public/uploads
-apos-build
-data
+
