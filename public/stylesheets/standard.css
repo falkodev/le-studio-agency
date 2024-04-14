@@ -1751,6 +1751,10 @@
    background-image: none;
  }
 
+ .u-section-8 .u-text {
+   max-width: 60%;
+ }
+
  .u-section-8 .u-sheet-1 {
    min-height: 825px;
  }
@@ -1769,8 +1773,6 @@
    min-height: 588px;
    grid-gap: 30px;
  }
-
- .u-section-8 .u-list-item-1 {}
 
  .u-section-8 .u-container-layout-1 {
    padding: 30px;
@@ -1793,8 +1795,6 @@
    margin: 20px auto 0 147px;
  }
 
- .u-section-8 .u-list-item-2 {}
-
  .u-section-8 .u-container-layout-2 {
    padding: 30px;
  }
@@ -1815,8 +1815,6 @@
  .u-section-8 .u-text-5 {
    margin: 20px auto 0 147px;
  }
-
- .u-section-8 .u-list-item-3 {}
 
  .u-section-8 .u-container-layout-3 {
    padding: 30px;
