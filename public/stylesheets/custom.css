@@ -11,34 +11,43 @@
   background: rgba(0, 0, 0, 0.4);
 }
 
-@keyframes animate-box {
-  to {
-    transform: translate(-60%, -30%);
+@media (max-width: 575px) {
+  .animate-box {
+    margin-left: 0 !important;
   }
 }
 
-.animate-box {
-  animation: animate-box 1s linear alternate infinite;
-}
-
-@keyframes animate-circle {
-  to {
-    transform: translateX(-1000px);
+@media (min-width: 576px) {
+  @keyframes animate-box {
+    to {
+      transform: translate(-60%, -30%);
+    }
   }
-}
 
-.animate-circle {
-  animation: animate-circle 1s linear alternate infinite;
-}
-
-@keyframes animate-stripe-circle {
-  to {
-    transform: translate(150%, 150%);
+  .animate-box {
+    animation: animate-box 1s linear alternate infinite;
+    padding: 40px;
   }
-}
 
-.animate-stripe-circle {
-  animation: animate-stripe-circle 1s linear alternate infinite;
+  @keyframes animate-circle {
+    to {
+      transform: translateX(-1000px);
+    }
+  }
+
+  .animate-circle {
+    animation: animate-circle 1s linear alternate infinite;
+  }
+
+  @keyframes animate-stripe-circle {
+    to {
+      transform: translate(150%, 150%);
+    }
+  }
+
+  .animate-stripe-circle {
+    animation: animate-stripe-circle 1s linear alternate infinite;
+  }
 }
 
 .animate {
