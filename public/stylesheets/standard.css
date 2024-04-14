@@ -347,8 +347,6 @@
    grid-gap: 33px;
  }
 
- .u-section-3 .u-list-item-1 {}
-
  .u-section-3 .u-container-layout-1 {
    padding: 20px;
  }
@@ -367,8 +365,6 @@
  .u-section-3 .u-text-4 {
    margin: 20px auto 0 0;
  }
-
- .u-section-3 .u-list-item-2 {}
 
  .u-section-3 .u-container-layout-2 {
    padding: 20px;
@@ -389,8 +385,6 @@
    margin: 20px auto 0 0;
  }
 
- .u-section-3 .u-list-item-3 {}
-
  .u-section-3 .u-container-layout-3 {
    padding: 20px;
  }
@@ -409,8 +403,6 @@
  .u-section-3 .u-text-10 {
    margin: 20px auto 0 0;
  }
-
- .u-section-3 .u-list-item-4 {}
 
  .u-section-3 .u-container-layout-4 {
    padding: 20px;
@@ -502,7 +494,7 @@
  .u-section-4 .u-image-1 {
    height: 603px;
    width: 864px;
-   margin: -121px auto 0 430px;
+   margin: -121px auto 0 330px;
  }
 
  .u-section-4 .u-group-1 {
@@ -1838,8 +1830,6 @@
    margin: 20px auto 0 147px;
  }
 
- .u-section-8 .u-list-item-4 {}
-
  .u-section-8 .u-container-layout-4 {
    padding: 30px;
  }
@@ -1861,8 +1851,6 @@
    margin: 20px auto 0 147px;
  }
 
- .u-section-8 .u-list-item-5 {}
-
  .u-section-8 .u-container-layout-5 {
    padding: 30px;
  }
@@ -1883,8 +1871,6 @@
  .u-section-8 .u-text-11 {
    margin: 20px auto 0 147px;
  }
-
- .u-section-8 .u-list-item-6 {}
 
  .u-section-8 .u-container-layout-6 {
    padding: 30px;
@@ -2098,8 +2084,13 @@
    background-image: none;
  }
 
- .u-section-9.u-palette-4-dark-2 a:hover {
+ .u-section-9.u-palette-4-dark-2  {
   color: white;
+ }
+
+ .u-section-9.u-palette-4-dark-2 u-layout {
+  max-width: 1112px;
+  margin: 0 auto;
  }
 
  .u-section-9 .u-form-horizontal {
@@ -2121,9 +2112,15 @@
    min-height: 555px;
  }
 
+ .u-section-9 .u-layout-row {
+    max-width: 1112px;
+    margin: 0 auto
+ }
+
  .u-section-9 .u-layout-wrap-1 {
    margin-top: 60px;
    margin-bottom: 0;
+   background-color: white;;
  }
 
  .u-section-9 .u-layout-cell-1 {
@@ -2182,6 +2179,9 @@
  .u-section-9 .u-list-1 {
    margin-top: 37px;
    margin-bottom: 60px;
+  justify-content: center;
+  flex-direction: row !important;
+  max-width: 100%;
  }
 
  .u-section-9 .u-repeater-1 {
@@ -2189,7 +2189,14 @@
    min-height: 118px;
    grid-gap: 0px;
    margin-left: 30px;
+   max-width: 1112px;
+   display: flex;
  }
+
+.u-section-9 .u-repeater-item {
+  width: 50%;
+  padding: 40px;
+}
 
  .u-section-9 .u-container-layout-3 {
    padding: 10px 10px 10px 0;
@@ -3809,8 +3816,6 @@
    clip: rect(0, 0, 0, 0);
    border: 0;
  }
-
- .u-form {}
 
  [class*="u-border-"],
  .u-input,
