@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "nodemon ./bin/www",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "deploy": "node ./bin/minify && sc-deploy production"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

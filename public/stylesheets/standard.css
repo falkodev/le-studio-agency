@@ -994,6 +994,7 @@
 
    .u-section-5 .u-repeater-1 {
      grid-template-columns: 100%;
+     grid-row-gap: 2%;
    }
 
    .u-section-5 .u-container-layout-1 {
@@ -2568,6 +2569,12 @@
    flex-grow: 1;
  }
 
+  @media (max-width: 767px) {
+    .u-form-horizontal .u-form-group:not(.u-label-top) input {
+      margin: 30px;
+    }
+  }
+
  .u-form-horizontal .u-form-group:not(.u-label-top) {
    display: flex;
    flex: 0 0 auto;
@@ -2711,10 +2718,6 @@
  .u-input-rectangle {
    border-radius: 0;
  }
-
- .u-form {}
-
- .u-form {}
 
  *,
  *:before,

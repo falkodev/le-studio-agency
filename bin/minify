@@ -34,7 +34,7 @@ jsFiles.forEach(file => {
 
 minify({
   compressor: cssnano,
-  input: 'public/stylesheets/**/*.css',
+  input: ['public/stylesheets/style.prod.css', 'public/stylesheets/standard.css', 'public/stylesheets/custom.css'],
   output: `public/stylesheets/${styleName}`
 });
 
