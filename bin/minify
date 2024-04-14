@@ -3,15 +3,43 @@
 const minify = require('@node-minify/core');
 const terser = require('@node-minify/terser');
 const cssnano = require('@node-minify/cssnano');
+const fs = require('fs');
+
+const generateNewFileName = (fileName) => {
+  const randomNumber = Math.floor(Math.random() * 99999)
+  const parts = fileName.split('.');
+  const extension = parts.pop();
+  return `min.${randomNumber}.${extension}`;
+};
+
+const styleName = generateNewFileName('style.css');
+const scriptName = generateNewFileName('script.js');
+
+fs.writeFileSync('release-ids', `${styleName}\n${scriptName}`);
+
+// remove files in public/stylesheets and public/javascripts with scriptName and styleName containing "min""
+const cssFiles = fs.readdirSync('public/stylesheets');
+cssFiles.forEach(file => {
+  if (file.includes('min')) {
+    fs.unlinkSync(`public/stylesheets/${file}`);
+  }
+});
+
+const jsFiles = fs.readdirSync('public/javascripts');
+jsFiles.forEach(file => {
+  if (file.includes('min')) {
+    fs.unlinkSync(`public/javascripts/${file}`);
+  }
+});
 
 minify({
   compressor: cssnano,
   input: 'public/stylesheets/**/*.css',
-  output: 'public/stylesheets/style.min.css'
+  output: `public/stylesheets/${styleName}`
 });
 
 minify({
   compressor: terser,
   input: 'public/javascripts/**/*.js',
-  output: 'public/javascripts/script.min.js'
+  output: `public/javascripts/${scriptName}`
 });

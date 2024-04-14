@@ -1,13 +1,25 @@
+const fs = require('fs');
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 
 router.get('/', function (req, res, next) {
+  let style = 'style.css';
+  let script = 'script.js';
+
+  if (process.env.NODE_ENV === 'production') {
+    const releaseIds = fs.readFileSync('release-ids', 'utf8');
+    if (releaseIds) {
+      const [cssId, jsId] = releaseIds.split('\n');
+      style = cssId;
+      script = jsId;
+    }
+  }
   res.render('index', {
     title: 'LeStudio',
     year: new Date().getFullYear(),
-    style: process.env.NODE_ENV === 'production' ? 'style.min' : 'style',
-    script: process.env.NODE_ENV === 'production' ? 'script.min' : 'script',
+    style,
+    script,
   });
 });
 
