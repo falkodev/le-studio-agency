@@ -1764,7 +1764,12 @@
 
  .u-section-8 .u-text {
    max-width: 60%;
+   color: white;
  }
+
+  .u-section-8.u-palette-4-dark-2 p.u-text {
+    color: white;
+  }
 
  .u-section-8 .u-sheet-1 {
    min-height: 825px;
@@ -1855,7 +1860,7 @@
  .u-section-8 .u-image-4 {
    width: 110px;
    height: 110px;
-   background-image: url("//images02.nicepagecdn.com/a1389d7bc73adea1e1c1fb7e/22a6a6dad5ca522c96fc9b62/pexels-photo-2989724.jpeg?version=");
+   background-image: url("../images/etienne.webp");
    background-position: 50% 50%;
    margin: 0 auto 0 0;
  }
