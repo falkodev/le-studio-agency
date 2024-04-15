@@ -14,7 +14,7 @@ nav ul {
   display: flex;
   justify-content: space-evenly;
   list-style: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-top: 25px;
 }
 
@@ -57,8 +57,8 @@ header nav ul li a {
     height: 44px;
     text-align: right;
     display: block;
-    margin-right: 11px;
-    top: 37px;
+    margin-right: 14px;
+    top: 32px;
     position: relative;
   }
 
@@ -126,7 +126,7 @@ header nav ul li a {
 
 @media (max-width: 575px) {
   .logo {
-    top: 32px;
+    top: 25px;
     left: 12px;
   }
 

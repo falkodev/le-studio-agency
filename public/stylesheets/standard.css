@@ -13,7 +13,7 @@
 
  .u-section-1 .u-text-1 {
    font-weight: 600;
-   margin: 60px 0 0 370px;
+   margin: 160px 0 0 370px;
 
   text-shadow: var(--primary) -4px 0px 0px;
   background: var(--secondary);
@@ -71,6 +71,10 @@
    font-weight: 300;
    margin: 33px 0 60px auto;
  }
+
+  .u-section-1 .u-btn-2 {
+    margin-bottom: 25px;
+  }
 
  .u-section-1 .u-btn-3 {
    border-style: solid;
@@ -141,8 +145,13 @@
      padding-left: 10px;
    }
 
+  .u-section-1 .u-text-1 {
+    font-size: 5rem;
+  }
+
    .u-section-1 .u-text-2 {
      margin-top: 32px;
+     font-size: 1.5rem;
    }
  }
 
@@ -172,6 +181,15 @@
    .u-section-1 .u-container-layout-2 {
      padding-top: 0;
    }
+ }
+
+ @media (max-width: 360px) {
+  .u-section-1 .u-text-1 {
+    font-size: 4rem;
+  }
+  .u-section-1 .u-text-2 {
+    font-size: 1.2rem;
+  }
  }
 
  .u-section-2 {
