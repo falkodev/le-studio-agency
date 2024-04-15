@@ -194,6 +194,7 @@
 
  .u-section-2 {
    background-image: none;
+   background-color: white;
  }
 
  .u-section-2 .u-sheet-1 {
@@ -218,8 +219,8 @@
  }
 
  .u-section-2 .u-icon-1 {
-   height: 65px;
-   width: 65px;
+   height: 58px;
+   width: 58px;
    background-image: none;
    margin: 0 auto;
  }
@@ -237,8 +238,8 @@
  }
 
  .u-section-2 .u-icon-2 {
-   height: 65px;
-   width: 65px;
+   height: 58px;
+   width: 58px;
    background-image: none;
    margin: 0 auto;
  }
@@ -252,8 +253,8 @@
  }
 
  .u-section-2 .u-icon-3 {
-   height: 65px;
-   width: 65px;
+   height: 58px;
+   width: 58px;
    background-image: none;
    margin: 0 auto;
  }
@@ -267,8 +268,8 @@
  }
 
  .u-section-2 .u-icon-4 {
-   height: 65px;
-   width: 65px;
+   height: 58px;
+   width: 58px;
    background-image: none;
    margin: 0 auto;
  }
@@ -344,6 +345,7 @@
 
  .u-section-3 {
     padding: 0 10%;
+    background-color: white;
  }
 
  .u-section-3 .u-sheet-1 {
