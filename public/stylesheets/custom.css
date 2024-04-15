@@ -15,6 +15,26 @@
   .animate-box {
     margin-left: 0 !important;
   }
+
+  @keyframes animate-circle {
+    to {
+      transform: translateX(-600px);
+    }
+  }
+
+  .animate-circle {
+    animation: animate-circle 1s linear alternate infinite;
+  }
+
+  @keyframes animate-stripe-circle {
+    to {
+      transform: translate(600px, -200px);
+    }
+  }
+
+  .animate-stripe-circle {
+    animation: animate-stripe-circle 1s linear alternate infinite;
+  }
 }
 
 @media (min-width: 576px) {
