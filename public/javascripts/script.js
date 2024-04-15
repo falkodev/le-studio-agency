@@ -36,3 +36,25 @@ window.addEventListener('submit', async (evt) => {
     }, 5000);
   }
 }, false);
+
+transition('.hidden-horizontally', 'show-horizontally')
+transition('.u-section-3 .hidden-vertically', 'show-vertically')
+transition('.u-section-8 .hidden-vertically', 'show-vertically')
+
+function transition(selector, className) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add(className);
+      } else {
+        entry.target.classList.remove(className);
+      }
+    });
+  });
+
+  const elements = document.querySelectorAll(selector);
+  elements.forEach((element, i) => {
+    element.style.transitionDelay = i * 200 + "ms";
+    observer.observe(element);
+  });
+}

@@ -56,3 +56,37 @@
   animation-iteration-count: 1;
   animation-fill-mode: both;
 }
+
+.hidden-horizontally {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hidden-horizontally {
+    transition: all 1s;
+  }
+}
+
+.show-horizontally {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+.hidden-vertically {
+  opacity: 0;
+  transform: translateY(50%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hidden-vertically {
+    transition: all 1s;
+  }
+}
+
+.show-vertically {
+  opacity: 1;
+  transform: translateY(0);
+}
