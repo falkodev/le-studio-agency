@@ -15,6 +15,7 @@ nav ul {
   justify-content: space-evenly;
   list-style: none;
   font-size: 1.2rem;
+  margin-top: 25px;
 }
 
 header nav ul li a {
@@ -68,6 +69,75 @@ header nav ul li a {
 
   #wrap:target #open {
     display: none;
+  }
+}
+
+.logo {
+  position: absolute;
+  border: 3px solid white;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  top: 12px;
+  left: 14px;
+  z-index: 1;
+}
+
+.logo #l {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  top: 8px;
+  left: 11px;
+  z-index: 0;
+}
+
+.logo #s {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  top: -14px;
+  left: 23px;
+  z-index: 0;
+}
+
+@media (max-width: 991px) {
+  .logo {
+    height: 45px;
+    width: 45px;
+    top: 10px;
+    left: 8px;
+  }
+
+  .logo #l {
+    width: 15px;
+    height: 15px;
+    top: 5px;
+    left: 9px;
+  }
+
+  .logo #s {
+    width: 15px;
+    height: 15px;
+    top: 12px;
+    left: -1px;
+  }
+}
+
+@media (max-width: 575px) {
+  .logo {
+    top: 32px;
+    left: 12px;
+  }
+
+  .logo #l {
+    top: 0px;
+    left: 8px;
+  }
+
+  .logo #s {
+    top: 8px;
+    left: -4px;
   }
 }
 
