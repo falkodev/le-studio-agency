@@ -103,8 +103,8 @@ header nav ul li a {
 
 @media (max-width: 991px) {
   .logo {
-    height: 45px;
-    width: 45px;
+    height: 50px;
+    width: 50px;
     top: 10px;
     left: 8px;
   }
@@ -112,15 +112,15 @@ header nav ul li a {
   .logo #l {
     width: 15px;
     height: 15px;
-    top: 5px;
-    left: 9px;
+    top: 7px;
+    left: 11px;
   }
 
   .logo #s {
     width: 15px;
     height: 15px;
-    top: 12px;
-    left: -1px;
+    top: 14px;
+    left: 1px;
   }
 }
 
@@ -131,13 +131,13 @@ header nav ul li a {
   }
 
   .logo #l {
-    top: 0px;
-    left: 8px;
+    top: 2px;
+    left: 11px;
   }
 
   .logo #s {
-    top: 8px;
-    left: -4px;
+    top: 10px;
+    left: -2px;
   }
 }
 
