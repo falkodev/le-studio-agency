@@ -3,14 +3,15 @@
   <head>
     <title>{{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/stylesheets/{{ style }}" />
     <meta charset="utf-8">
     <meta name="description" content="Le Studio - Web agency specialized in JS - Offers social media management, ads campaigns, web development and mobile development - In Lyon, France">
     <link rel="icon" href="/images/favicon.ico">
+    <link rel="preload" as="image" href="/images/hero.webp" />
+    <link rel="stylesheet" href="/stylesheets/{{ style }}" />
   </head>
   <body>
     <div data-apos-refreshable>
-      <a name="main" aria-label="main"></a>
+      <a name="main" aria-description="main"></a>
       {{{body}}}
     </div>
   </body>

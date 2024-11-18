@@ -226,6 +226,7 @@
 
  .u-section-2 .u-text {
    font-size: 1.5rem;
+   color: #fff !important;
  }
 
  .u-section-2 .u-text-1 {
@@ -344,10 +345,15 @@
 
  .u-section-3 {
     padding: 0 10%;
+    color: #fff !important;
  }
 
  .u-section-3 .u-sheet-1 {
    min-height: 1143px;
+ }
+
+ .u-section-3 .u-text {
+  color: #fff !important;
  }
 
  .u-section-3 .u-text-1 {
@@ -703,7 +709,7 @@
    min-height: 380px;
    grid-row-gap: 10%;
    grid-column-gap: 20%;
-   justify-content: space-around;
+   justify-content: center;
  }
 
  .u-section-5 .u-container-layout-1 {
@@ -1819,7 +1825,7 @@
  .u-section-8 .u-image-2 {
    width: 110px;
    height: 110px;
-   background-image: url("../images/chiara.webp");
+   background-image: url("../images/aurelie.webp");
    background-position: 50% 50%;
    margin: 0 auto 0 0;
  }
@@ -2180,6 +2186,11 @@
    font-weight: 400;
    margin-bottom: 0;
    margin-top: 0;
+
+   a {
+    color: white;
+    text-decoration: underline;
+   }
  }
 
  .u-section-9 .u-text-4 {
@@ -2589,6 +2600,8 @@
    background-color: transparent;
    color: inherit;
    height: auto;
+   font-family: 'PT Sans', sans-serif;
+   font-size: 1rem;
  }
 
  .u-form-horizontal .u-form-group:not(.u-label-top) label,
@@ -4167,7 +4180,7 @@
  .u-input.u-palette-1-base,
  .u-button-style.u-palette-1-base,
  .u-button-style.u-palette-1-base[class*="u-border-"] {
-   color: var(--secondary) !important;
+   color: #190c3a !important;
    background-color: var(--primary) !important;
  }
 
@@ -4409,7 +4422,7 @@
 
  .u-border-white,
  .u-border-white.u-input {
-   border-color: var(--secondary);
+   border-color: #fff;
    stroke: #ffffff;
  }
 
