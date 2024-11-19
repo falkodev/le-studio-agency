@@ -7,6 +7,14 @@ window.addEventListener('submit', async (evt) => {
     evt.preventDefault();
 
     const form = evt.target;
+    const message = form.elements.message.value;
+    if (!message || message.includes('<') || message.includes('http') || message.includes('href') || message.includes('src') || message.length < 20 || message.length > 500) {
+      document.querySelector('.u-form-send-error').style.display = 'block';
+      setTimeout(() => {
+        document.querySelector('.u-form-send-error').style.display = 'none';
+      }, 5000);
+      return;
+    }
 
     fetch(form.action, {
       method: form.method,
