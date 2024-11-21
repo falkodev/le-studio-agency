@@ -6,6 +6,9 @@ window.addEventListener('submit', async (evt) => {
   try {
     evt.preventDefault();
 
+    const submitButton = document.querySelector('input[type="submit"]');
+    submitButton.disabled = true;
+
     const form = evt.target;
     const message = form.elements.message.value;
     if (!message || message.includes('<') || message.includes('http') || message.includes('href') || message.includes('src') || message.length < 20 || message.length > 500) {
@@ -23,7 +26,8 @@ window.addEventListener('submit', async (evt) => {
       },
       body: JSON.stringify({
         email: form.elements.email.value,
-        message: form.elements.message.value
+        message: form.elements.message.value,
+        token: form.elements['cf-turnstile-response'].value,
       })
     }).then((data) => {
       data.json().then((response) => {
@@ -33,6 +37,8 @@ window.addEventListener('submit', async (evt) => {
           setTimeout(() => {
             document.querySelector('.u-form-send-success').style.display = 'none';
           }, 5000);
+        } else {
+          throw new Error('An error occurred');
         }
       })
     })
@@ -42,6 +48,8 @@ window.addEventListener('submit', async (evt) => {
     setTimeout(() => {
       document.querySelector('.u-form-send-error').style.display = 'none';
     }, 5000);
+  } finally {
+    submitButton.disabled = false;
   }
 }, false);
 

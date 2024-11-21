@@ -16,6 +16,8 @@ services:
       NODE_ENV: development
       PORT:
       EMAIL_PASS:
+      CLOUDFLARE_SITE_KEY:
+      CLOUDFLARE_SECRET_KEY:
     healthcheck:
       test: node healthcheck
     logging:

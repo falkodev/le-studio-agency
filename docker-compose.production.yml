@@ -16,6 +16,8 @@ services:
       NODE_ENV: ${NODE_ENV:-production}
       PORT:
       EMAIL_PASS:
+      CLOUDFLARE_SITE_KEY:
+      CLOUDFLARE_SECRET_KEY:
     logging:
       options:
         max-file: '5'

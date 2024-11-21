@@ -2,6 +2,7 @@ const fs = require('fs');
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
+const launder = require('launder')();
 
 router.get('/', function (req, res, next) {
   let style = 'style.css';
@@ -23,7 +24,33 @@ router.get('/', function (req, res, next) {
   });
 });
 
-router.post('/contact', function (req, res, next) {
+router.post('/contact', async function (req, res, next) {
+  const email = launder.string(req.body.email);
+  const message = launder.string((req.body.message + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + '<br>'));
+  const token = launder.string(req.body.token);
+
+  if (!message || !email || message.includes('<') || message.includes('http') || message.includes('href') || message.includes('src') || message.length < 20 || message.length > 500) {
+    return;
+  }
+
+  const url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+  const result = await fetch(url, {
+    body: JSON.stringify({
+      secret: process.env.CLOUDFLARE_SECRET_KEY,
+      response: token,
+    }),
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+
+  const outcome = await result.json();
+  if (!outcome.success) {
+    console.log('cloudflare verify outcome ====> ', outcome)
+    return;
+  }
+
   const transporter = nodemailer.createTransport({
     port: 465,
     host: 'smtp.zoho.eu',
@@ -34,11 +61,8 @@ router.post('/contact', function (req, res, next) {
     secure: true,
   });
 
-  let content = `Un nouveau message de la part de <b>${req.body.email}</b>`
-  if (req.body.message) {
-    const message = (req.body.message + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + '<br>');
-    content += ` :<br>${message}`;
-  }
+  let content = `Un nouveau message de la part de <b>${email}</b>`
+  content += ` :<br>${message}`;
 
   const mailData = {
   from: 'anthony@tarlao.fr',
