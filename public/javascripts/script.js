@@ -7,7 +7,9 @@ window.addEventListener('submit', async (evt) => {
     evt.preventDefault();
 
     const submitButton = document.querySelector('input[type="submit"]');
-    submitButton.disabled = true;
+    const contactFormLabel = document.querySelector('#contact-form-label');
+    submitButton.style.display = 'none';
+    contactFormLabel.style.display = 'block';
 
     const form = evt.target;
     const message = form.elements.message.value;
@@ -36,6 +38,7 @@ window.addEventListener('submit', async (evt) => {
           document.querySelector('.u-form-send-success').style.display = 'block';
           setTimeout(() => {
             document.querySelector('.u-form-send-success').style.display = 'none';
+            contactFormLabel.textContent = "Message sent!";
           }, 5000);
         } else {
           throw new Error('An error occurred');
@@ -47,9 +50,8 @@ window.addEventListener('submit', async (evt) => {
     document.querySelector('.u-form-send-error').style.display = 'block';
     setTimeout(() => {
       document.querySelector('.u-form-send-error').style.display = 'none';
+      contactFormLabel.textContent = "Message not sent!";
     }, 5000);
-  } finally {
-    submitButton.disabled = false;
   }
 }, false);
 
